@@ -9,12 +9,12 @@ jobs:
     needs: [build, docker]
     runs-on: ubuntu-latest
     steps:
-      - run: echoo "hello"
+      - run: echo "hello"
   checkov:
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hello"
+      - run: echoo "hello"
   plan:
     needs: checkov
     if: success()
@@ -44,7 +44,8 @@ jobs:
     steps:
       - run: echo "hello"
   dockerise: 
-    needs: trivy 
+    needs: trivy
+    if: success()
     runs-on: ubuntu-latest
     steps: 
      - run: echo "hello"
