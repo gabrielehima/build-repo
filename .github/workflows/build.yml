@@ -27,15 +27,19 @@ jobs:
   apply:
     needs: plan
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        envi: [ dev, stage, prod ]
     steps:
-        - run: echo "hello"
+      - run: echo ${{ matrix.envi }}
   docker:
     runs-on: ubuntu-latest
     steps:
         - run: echo "hello"
   trivy:
     needs: [ docker, setup ]
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
       - run: echo "hello"
   dockerise: 
