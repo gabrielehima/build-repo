@@ -42,7 +42,7 @@ jobs:
     needs: [ docker, setup ]
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hello"
+      - run: echoo "hello"
   dockerise: 
     needs: trivy
     if: success()
