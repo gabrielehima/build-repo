@@ -6,22 +6,27 @@ jobs:
       steps:
         - run: echo "Hello"
   setup:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - run: echo "hello"
   sast:
+    needs: setup
     runs-on: ubuntu-latest
     steps:
       - run: echo "hello"
   plan:
-      runs-on: ubuntu-latest
-      steps:
-         - run: echo "hello"
+    needs: sast
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello"
   apply:
+      needs: plan
       runs-on: ubuntu-latest
       steps:
         - run: echo "hello"
   docker:
-      runs-on: ubuntu-latest
-      steps:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
         - run: echo "hello"
