@@ -5,8 +5,12 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - run: echo "Hello"
+  startup:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello" 
   setup:
-    needs: [build, docker]
+    needs: [ build, docker, startup ]
     runs-on: ubuntu-latest
     steps:
       - run: echo "hello"
