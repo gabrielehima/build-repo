@@ -9,7 +9,7 @@ jobs:
     needs: [build, docker]
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hello"
+      - run: echoo "hello"
   checkov:
     needs: setup
     runs-on: ubuntu-latest
@@ -17,6 +17,7 @@ jobs:
       - run: echo "hello"
   plan:
     needs: checkov
+    if: success()
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
