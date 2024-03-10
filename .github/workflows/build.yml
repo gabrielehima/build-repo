@@ -26,6 +26,10 @@ jobs:
       matrix:
         envi: [ dev, stage, prod ]
     steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: test.tf
       - run: terraform init
   apply:
     needs: plan
