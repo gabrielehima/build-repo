@@ -13,14 +13,7 @@ jobs:
     needs: [ build, docker, startup ]
     uses: ./.github/workflows/setup.yml
   checkov:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: test.tf
-      - run: terraform fmt -check
+    uses: ./.github/workflows/tests.yml
   plan:
     needs: checkov
     if: success()
