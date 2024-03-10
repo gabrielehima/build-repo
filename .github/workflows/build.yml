@@ -16,7 +16,11 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hello"
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: test.tf
+      - run: terraform fmt -check
   plan:
     needs: checkov
     if: success()
