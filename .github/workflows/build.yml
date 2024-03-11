@@ -11,10 +11,10 @@ jobs:
       - run: echo "hello" 
   setup:
     needs: [ build, docker, startup ]
-    uses: ./.github/workflows/setup.yml
+    uses: gabrielehima/shared-workflows/.github/workflows/setup.yml@main
   checkov:
     needs: setup
-    uses: ./.github/workflows/tests.yml
+    uses: gabrielehima/shared-workflows/.github/workflows/tests.yml@main
   plan:
     needs: checkov
     if: success()
