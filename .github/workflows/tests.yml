@@ -5,10 +5,6 @@ on:
 jobs:
   # This workflow contains a single job called "scan"
   scan:
-    permissions:
-      contents: read
-      security-events: write # for github/codeql-qction/upload-sarif to upload SARIF results
-      actions: read
     runs-on: ubuntu-latest
     steps:
       - name: Download artifacts
