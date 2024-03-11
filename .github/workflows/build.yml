@@ -13,6 +13,7 @@ jobs:
     needs: [ build, docker, startup ]
     uses: ./.github/workflows/setup.yml
   checkov:
+    needs: setup
     uses: ./.github/workflows/tests.yml
   plan:
     needs: checkov
