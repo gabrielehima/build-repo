@@ -6,7 +6,7 @@ on:
         environment:
           type: environment
           required: true
-          options: [ dev, stage, prod ]
+          options: [dev, stage, prod]
 jobs:
   release:
     uses: ./.github/workflows/release.yml
