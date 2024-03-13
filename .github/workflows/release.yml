@@ -1,0 +1,14 @@
+name: release
+
+on:
+  workflow_dispatch:
+      inputs:
+        environment:
+          type: environment
+          required: true
+          options: [ dev, stage, prod ]
+jobs:
+  release:
+    uses: ./.github/workflows/release.yml
+    with:
+      target-env ${{ inputs.environment }}
