@@ -15,7 +15,7 @@ jobs:
     uses: gabrielehima/shared-workflows/.github/workflows/setup.yml@main
   checkov:
     needs: setup
-    uses: gabrielehima/shared-workflows/.github/workflows/tests.yml@main
+    uses: gabrielehima/shared-workflows/.github/workflows/test.yml@main
   plan:
     needs: checkov
     if: success()
