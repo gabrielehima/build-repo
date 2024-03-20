@@ -45,6 +45,4 @@ jobs:
     if: ${{ needs.check.outputs.selected == 'prod }}
     steps:
       - run: echo "Deploying to prod"
-    
-    run: echo "Deploying to dev
         
