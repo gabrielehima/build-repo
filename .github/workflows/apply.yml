@@ -27,22 +27,16 @@ jobs:
         fi
   deploy-dev:
     needs: check
-    runs-on: ubuntu-latest
     if: ${{ needs.check.outputs.selected == 'dev' }}
-    steps:
-      - run: echo "Deploying to dev"
+    uses: gabrielehima/shared-workflows/.github/workflows/apply.yml@main
 
   deploy-stage:
     needs: check
-    runs-on: ubuntu-latest
     if: ${{ needs.check.outputs.selected == 'stage' }}
-    steps:
-      - run: echo "Deploying to stage"
+    uses: gabrielehima/shared-workflows/.github/workflows/apply.yml@main
       
   deploy-prod:
     needs: check
-    runs-on: ubuntu-latest
     if: ${{ needs.check.outputs.selected == 'prod' }}
-    steps:
-      - run: echo "Deploying to prod"
+    uses: gabrielehima/shared-workflows/.github/workflows/apply.yml@main
         
