@@ -9,7 +9,7 @@ on:
 
 jobs:
   check:
-    runs-on: ububtu-latest
+    runs-on: ubuntu-latest
     outputs:
       selected-stage: ${{ steps.selected-environment.outputs.selected-stage }}
     steps:
