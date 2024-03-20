@@ -42,7 +42,7 @@ jobs:
   deploy-prod:
     needs: check
     runs-on: ubuntu-latest
-    if: ${{ needs.check.outputs.selected == 'prod }}
+    if: ${{ needs.check.outputs.selected == 'prod' }}
     steps:
       - run: echo "Deploying to prod"
         
